@@ -12,11 +12,13 @@
 <body>
     <div class="header">
         <a href="/" class="homebutton">Home</a>
-        <div class="mezera"></div>
         {% if user.is_authenticated %}
+        <div class="authmezera"></div>
+        <a href="/teams/">Teams</a>
         <a href="/logout/">Logout</a>
         <a href="/user/">{{user.username}}</a>
         {% else %}
+        <div class="mezera"></div>
         <a href="/login/">Login</a>
         <a href="/signup/">Sign Up</a>
         {% endif %}

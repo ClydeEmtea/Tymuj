@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Team List{% endblock %}
+
+{% block content %}
+<form method="get" class="team-search">
+    <input type="text" name="search-area" value="{{search_input}}" class="team-searchbar">
+    <input type="submit" value="Search" class="team-submit">
+</form>
+<a href="{% url 'team-create' %}">Create new</a><br><br>
+<table class="team-list">
+
+    {% for team in teams %}
+    <tr>
+        <td class="table-title">
+            <a href="{% url 'team-detail' team.id %}">{{team.title}}</a>
+        </td>
+    </tr>
+    {% empty %}
+        <h3>You have no teams</h3>
+    {% endfor %}
+</table>
+{% endblock %}

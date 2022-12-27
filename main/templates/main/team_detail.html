@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block title %}List{% endblock %}
+
+{% block content %}
+
+<h1>Team: {{team}}</h1>
+<h2>{{team.description}}</h2>
+
+<a href="{% url 'event-create' %}">Create new</a><br>
+
+<table class="event-list">
+{% for event in events %}
+<tr>
+    <td class="table-title">
+        <a href="{% url 'event' event.id %}">{{event.title}}</a>
+    </td>
+</tr>
+{% empty %}
+<h2>No events in this team</h2>
+{% endfor %}
+</table>
+<br>
+<a href="{% url 'team-delete' team.id %}">Delete</a><br>
+<a href="{% url 'team-update' team.id %}">Edit</a><br>
+
+<a href="{% url 'teams' %}">Go Back</a>
+
+
+
+{% endblock %}

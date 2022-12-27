@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block title %}List{% endblock %}
+
+{% block content %}
+
+<h1>Event: {{event.title}}</h1>
+<h2>{{event.description}}</h2>
+<h2>{{event.place}}</h2>
+<h2>{{event.when}}</h2>
+
+
+<br>
+<a href="">Delete</a><br>
+<a href="">Edit</a><br>
+
+<a href="{% url 'team-detail' event.motherteam_id %}">Go Back</a>
+
+
+
+{% endblock %}
