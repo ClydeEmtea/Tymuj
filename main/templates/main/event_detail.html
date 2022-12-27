@@ -9,7 +9,7 @@
 
 
 <br>
-<a href="">Delete</a><br>
+<a href="{% url 'event-delete' event.id %}">Delete</a><br>
 <a href="">Edit</a><br>
 
 <a href="{% url 'team-detail' event.motherteam_id %}">Go Back</a>

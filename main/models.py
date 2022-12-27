@@ -16,6 +16,7 @@ class Team(models.Model):
 
 class Event(models.Model):
     motherteam = models.ForeignKey('Team', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
     place = models.TextField(null=True, blank=True)

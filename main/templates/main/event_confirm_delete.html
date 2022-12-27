@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block title %}List{% endblock %}
+
+{% block content %}
+
+<h1>Delete Event: {{event}}</h1>
+
+<a href="{% url 'teams' %}"><h3 class="go-back-delete">Go Back</h3></a>
+<form method="post" class="delete-confirmation">
+    {% csrf_token %}
+    <p>Are you sure you want to delete this event? "{{event}}"</p>
+    <input type="submit" value="Delete">
+</form>
+
+{% endblock %}

@@ -5,6 +5,22 @@
 {% block content %}
     <h1>Welcome</h1>
     {% if user.is_authenticated %}
-    <h2>Hello, {{user.username}}!</h2>
+        <h2>Hello, {{user.username}}!</h2>
+        <h3>Events</h3>
+        {% for event in events %}
+            {% if event.user == request.user %}
+                <p><a href="{% url 'event' event.id %}">{{event.title}}</a>, <a href="{% url 'team-detail' event.motherteam_id %}">{{event.motherteam}}</a>, {{event.when}}</p>
+            {% endif %}
+        {% endfor %}
+        <br>
+        <a href="{% url 'event-create' %}">Add event</a>
+        <h3>Teams</h3>
+        {% for team in teams %}
+            {% if team.user == request.user %}
+                <p><a href="{% url 'team-detail' team.id %}">{{team.title}}</a></p>
+            {% endif %}
+        {% endfor %}
+        <br>
+        <a href="{% url 'team-create' %}">Add team</a>
     {% endif %}
 {% endblock %}
