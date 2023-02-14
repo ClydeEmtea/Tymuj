@@ -3,6 +3,8 @@
 {% block title %}Team List{% endblock %}
 
 {% block content %}
+<h1>Teams</h1>
+<h2>You are in {{teams.count}} teams</h2>
 <form method="get" class="team-search">
     <input type="text" name="search-area" value="{{search_input}}" class="team-searchbar">
     <input type="submit" value="Search" class="team-submit">
